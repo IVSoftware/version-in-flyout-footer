@@ -20,21 +20,18 @@
     <FlyoutItem Title="About">
         <ShellContent  />
     </FlyoutItem>
-    <Shell.FlyoutFooterTemplate>
-        <DataTemplate>
-            <Grid 
-                ColumnDefinitions="0.8*,0.2*"
-                Padding="10">
-                <Label
-                    x:Name="lblVersion"
-                    Text="{Binding AppVersion}"
-                    TextColor="Red"             
-                    FontAutoScalingEnabled="True"
-                    FontSize="Body"
-                    VerticalOptions="EndAndExpand" 
-                    HorizontalOptions="Center"
-                    Margin="10"/>
-            </Grid>
-        </DataTemplate>
-    </Shell.FlyoutFooterTemplate>
+    <Shell.FlyoutFooter>
+        <Grid 
+            ColumnDefinitions="0.8*,0.2*"
+            Padding="10">
+            <Label
+                x:Name="lblVersion"
+                TextColor="Red"             
+                FontAutoScalingEnabled="True"
+                FontSize="Body"
+                VerticalOptions="EndAndExpand" 
+                HorizontalOptions="Center"
+                Margin="10"/>
+        </Grid>
+    </Shell.FlyoutFooter>
 </Shell>

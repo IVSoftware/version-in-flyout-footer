@@ -4,9 +4,8 @@
     {
         public AppShell()
         {
-            BindingContext = this;
-            AppVersion = $"Version {AppInfo.Current.VersionString}";
             InitializeComponent();
+            lblVersion.Text = $"Version {AppInfo.Current.VersionString}";
         }
         public string AppVersion { get; }
     }
