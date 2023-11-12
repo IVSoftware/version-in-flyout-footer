@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:version_in_flyout_footer"
     Shell.FlyoutBackgroundColor="Azure"
+    Shell.FlyoutWidth="200"
     FlyoutIsPresented="True"
     Shell.FlyoutBehavior="Flyout">
     <ShellContent
@@ -21,19 +22,19 @@
     </FlyoutItem>
     <Shell.FlyoutFooterTemplate>
         <DataTemplate>
-        <Grid             
-            HeightRequest="50"
-            BackgroundColor="WhiteSmoke" 
-            HorizontalOptions="Fill">
-            <Label 
-                x:Name="lblVersion"
-                Text ="{Binding AppVersion}"
-                HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center"
-                BackgroundColor="DarkSlateGray"
-                TextColor="White"             
-             />
-        </Grid>
+            <Grid 
+                ColumnDefinitions="0.8*,0.2*"
+                Padding="10">
+                <Label
+                    x:Name="lblVersion"
+                    Text="{Binding AppVersion}"
+                    TextColor="Red"             
+                    FontAutoScalingEnabled="True"
+                    FontSize="Body"
+                    VerticalOptions="EndAndExpand" 
+                    HorizontalOptions="Center"
+                    Margin="10"/>
+            </Grid>
         </DataTemplate>
     </Shell.FlyoutFooterTemplate>
 </Shell>

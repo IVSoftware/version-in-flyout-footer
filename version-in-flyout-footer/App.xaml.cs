@@ -23,8 +23,8 @@
                 else
                 {
                     var window = base.CreateWindow(activationState);
-                    window.Width = 720;
-                    window.Height = 1280;
+                    window.Width = 500;
+                    window.Height = 800;
 
                     // give it some time to complete window resizing task.
                     window.Dispatcher.DispatchAsync(() => { }).GetAwaiter().OnCompleted(() =>

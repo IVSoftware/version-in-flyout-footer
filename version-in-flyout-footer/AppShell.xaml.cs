@@ -4,23 +4,10 @@
     {
         public AppShell()
         {
-            InitializeComponent();
             BindingContext = this;
             AppVersion = $"Version {AppInfo.Current.VersionString}";
+            InitializeComponent();
         }
-        public string AppVersion
-        {
-            get => _appVersion;
-            set
-            {
-                if (!Equals(_appVersion, value))
-                {
-                    _appVersion = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-        string _appVersion = string.Empty;
-
+        public string AppVersion { get; }
     }
 }
