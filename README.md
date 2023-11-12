@@ -14,18 +14,17 @@ What you're doing seems pretty close. Just set up your binding for the `Label.Te
     Margin="10"/>
 ```
 
-Then make sure the both the value and the binding context are set prior to the call to `InitializeComponent();`
+Then make sure the binding context is set.
 
 ```
 public partial class AppShell : Shell
 {
     public AppShell()
     {
-        BindingContext = this;
-        AppVersion = $"Version {AppInfo.Current.VersionString}";
-        InitializeComponent();
+        BindingContext = this;  
+        InitializeComponent(); 
     }
-    public string AppVersion { get; }
+    public string AppVersion { get; } = $"Version {AppInfo.Current.VersionString}";
 }
 ```
 Should work:
@@ -47,7 +46,6 @@ You may want to experiment with instantiating a `FlyoutFooter` on the spot, inst
     xmlns:local="clr-namespace:version_in_flyout_footer"
     Shell.FlyoutBackgroundColor="Azure"
     Shell.FlyoutWidth="200"
-    FlyoutIsPresented="True"
     Shell.FlyoutBehavior="Flyout">
     <ShellContent
         Title="Home"
@@ -57,7 +55,6 @@ You may want to experiment with instantiating a `FlyoutFooter` on the spot, inst
     <FlyoutItem Title="News">
         <ShellContent  />
     </FlyoutItem>
-
     <FlyoutItem Title="About">
         <ShellContent  />
     </FlyoutItem>
@@ -91,5 +88,8 @@ public partial class AppShell : Shell
     public string AppVersion { get; }
 }
 ```
+___
+*The difference: Using a template means that the corresponding `View` will instantiate in a "Lazy" way and so will be deferred to the first time the Flyout is shown (if ever). This can make startup faster, for example, when you have several complex page views. In the second version, the `FlyoutTemplate` instantiates while the app is initializing, increasing the time it takes to show the main view, but in a miniscule way in this case.*
+___
 
   [1]: https://i.stack.imgur.com/X8G5A.png
