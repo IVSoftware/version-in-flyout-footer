@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="version_in_flyout_footer.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:version_in_flyout_footer"
+    Shell.FlyoutBackgroundColor="Azure"
+    FlyoutIsPresented="True"
+    Shell.FlyoutBehavior="Flyout">
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" >
+    </ShellContent>
+    <FlyoutItem Title="News">
+        <ShellContent  />
+    </FlyoutItem>
+
+    <FlyoutItem Title="About">
+        <ShellContent  />
+    </FlyoutItem>
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+        <Grid             
+            HeightRequest="50"
+            BackgroundColor="WhiteSmoke" 
+            HorizontalOptions="Fill">
+            <Label 
+                x:Name="lblVersion"
+                Text ="{Binding AppVersion}"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                BackgroundColor="DarkSlateGray"
+                TextColor="White"             
+             />
+        </Grid>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+</Shell>
