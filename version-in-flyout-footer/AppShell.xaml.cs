@@ -4,10 +4,9 @@
     {
         public AppShell()
         {
-            BindingContext = this;
-            AppVersion = $"Version {AppInfo.Current.VersionString}";
-            InitializeComponent();
+            BindingContext = this;  
+            InitializeComponent(); 
         }
-        public string AppVersion { get; }
+        public string AppVersion { get; } = $"Version {AppInfo.Current.VersionString}";
     }
 }
